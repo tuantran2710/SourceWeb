@@ -65,7 +65,7 @@ const products = [
   {
     id: 5,
     title: "Hippie",
-    price: "2.300.000 ₫" ,
+    price: "2.300.000 ₫",
     colors: [
       {
         code: "gray",
@@ -134,4 +134,21 @@ productButton.addEventListener("click", () => {
 
 close.addEventListener("click", () => {
   payment.style.display = "none";
+});
+
+let listNavBtm = document.querySelectorAll("#nav .navBottom .menuItem");
+//Remove Active Class
+function removeActive() {
+  listNavBtm.forEach((ele, index) => {
+    if (ele.classList.contains("active")) {
+      ele.classList.remove("active");
+    }
+  });
+}
+// removeActive();
+listNavBtm.forEach((ele, index) => {
+  ele.addEventListener("click", function (event) {
+    removeActive();
+    listNavBtm[index].classList.add("active");
+  });
 });
